@@ -3,16 +3,15 @@
   "title": "Customer API",
   "description": "Customer API description",
   "definitions": {
-    "identifier": {
+    "id": {
       "type": "string",
       "description": "Product SKU",
       "example": "ABC-123"
     },
-    "orderBy": {
+    "customerId": {
       "type": "string",
-      "description": "Order by query",
-      "example": "price",
-      "enum": ["price", "distance", "postage"]
+      "description": "Product SKU",
+      "example": "ABC-123"
     }
   },
   "links": [
@@ -35,37 +34,8 @@
       "required": ["name", "age"]
     },
     {
-      "title": "Update",
-      "description": "Update a customer.",
-      "href": "/customer/{id}",
-      "method": "PUT",
-      "rel": "update",
-      "schema": {
-        "type": "object",
-        "properties": {
-          "id": { "$ref": "#/properties/id" },
-          "name": { "$ref": "#/properties/name" },
-          "age": { "$ref": "#/properties/age" }
-        }
-      },
-      "targetSchema": {
-        "rel": "self"
-      },
-      "required": ["id", "name", "age"]
-    },
-    {
-      "description": "Info for existing customer.",
-      "href": "/customer/{#/definitions/identifier}",
-      "method": "GET",
-      "rel": "self",
-      "title": "Info",
-      "targetSchema": {
-        "rel": "self"
-      }
-    },
-    {
-      "description": "Info for existing customer.",
-      "href": "/customer/{#/definitions/identifier}?{#/definitions/orderBy}",
+      "description": "Blog post info for existing customer.",
+      "href": "/customer/{#/definitions/id}/{#/definitions/customerId}/{age}?orderBy={orderBy}",
       "method": "GET",
       "rel": "self",
       "title": "Info",
@@ -73,7 +43,6 @@
         "rel": "self"
       }
     }
-    
   ],
   "properties": {
     "id": { "$ref": "../common/id.json" },
@@ -85,6 +54,13 @@
       "type": "integer",
       "minimum": 0,
       "example": 27
+    },
+    "orderBy": {
+      "type": "string",
+      "enum": ["price", "distance", "postage"],
+      "title": "Order by clause",
+      "description": "Order by",
+      "example": "price"
     },
     "shipTo": {
       "$ref": "../common/address.json"

@@ -2,15 +2,15 @@
 const Path = require('path')
 const pointer = require('json-pointer')
 const reduce = require('lodash.reduce')
-const parser = require('uritemplate').parse
+// const parser = require('uritemplate').parse
 const RefParser = require('json-schema-ref-parser')
 // const buildHref = require('json-schema-example-loader/lib/transformer').buildHref
 
-const tpl = parser('/date/{colour}/{shape}')
-const tpl1 = parser('/{year}/{month}/{day}{?orderBy,direction}')
-const tpl2 = parser('{?query*}')
-const tpl4 = parser('/prefix/{?params*}')
-const customerSchemaPath = Path.resolve(__dirname, './schema/routes/customer.json')
+// const tpl = parser('/date/{colour}/{shape}')
+// const tpl1 = parser('/{year}/{month}/{day}{?orderBy,direction}')
+// const tpl2 = parser('{?query*}')
+// const tpl4 = parser('/prefix/{?params*}')
+// const customerSchemaPath = Path.resolve(__dirname, './schema/routes/customer.json')
 
 const throwError = function (e, msg) {
   var err = new Error(msg + ': ' + e.message)
@@ -60,12 +60,14 @@ const parseHref = function (href, schema) {
   }
 }
 
-RefParser.dereference(customerSchemaPath, function (err, customerSchema) {
-  if (err) {
-    throw err
-  }
+// RefParser.dereference(customerSchemaPath, function (err, customerSchema) {
+//   if (err) {
+//     throw err
+//   }
 
-  const path = parseHref('/customer/{#/definitions/identifier}?{#/definitions/orderBy}', customerSchema)
+//   const path = parseHref('/customer/{#/definitions/identifier}/{./common/id.json}?{#/definitions/orderBy}', customerSchema)
 
 
-})
+// })
+
+module.exports = parseHref
