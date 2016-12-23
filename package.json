@@ -1,0 +1,28 @@
+{
+  "name": "jpi-uri-template",
+  "version": "1.0.0",
+  "description": "Transform uri-template to hapi path",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/node-jpi/jpi-uri-template.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/node-jpi/jpi-uri-template/issues"
+  },
+  "homepage": "https://github.com/node-jpi/jpi-uri-template#readme",
+  "dependencies": {
+    "json-pointer": "0.6.0",
+    "json-schema-example-loader": "0.0.9",
+    "json-schema-ref-parser": "3.1.2",
+    "lodash.reduce": "4.6.0",
+    "uri-template": "1.0.1",
+    "uri-templates": "0.2.0",
+    "uritemplate": "0.3.4"
+  }
+}
